@@ -51,8 +51,8 @@
 
 // Define homing/hard limit switch input pins and limit interrupt vectors.
 #define X_LIMIT_PIN             GPIO_NUM_4
-#define Y_LIMIT_PIN             GPIO_NUM_2 //using gpio2 prevents from rebooting the board into flashing mode. do not plug into it
-#define Z_LIMIT_PIN             GPIO_NUM_15
+#define Y_LIMIT_PIN             GPIO_NUM_15 //using gpio2 prevents from rebooting the board into flashing mode. do not plug into it
+#define Z_LIMIT_PIN             GPIO_NUM_2
 
 #if DRIVER_SPINDLE_ENABLE
 // Define spindle enable and spindle direction output pins.
@@ -85,7 +85,7 @@
 
 // Define flood and mist coolant enable output pins.
 
-#define COOLANT_FLOOD_PIN       GPIO_NUM_16
+//#define COOLANT_FLOOD_PIN       GPIO_NUM_16
 #define COOLANT_MIST_PIN        GPIO_NUM_21
 
 // Define user-control CONTROLs (cycle start, reset, feed hold) input pins.

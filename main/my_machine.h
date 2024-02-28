@@ -37,13 +37,13 @@
 //#define BOARD_ROOTCNC_V3          //
 //#define BOARD_CNC_BOOSTERPACK     //
 //#define BOARD_GENERIC_I2S_S3      // Generic map for ESP32-S3 with I2S shift registers for I/O expansion
-//#define BOARD_MY_MACHINE          // Add my_machine_map.h in the boards directory before enabling this!
+#define BOARD_MY_MACHINE          // Add my_machine_map.h in the boards directory before enabling this!
 //#define BOARD_BLOX
 // Configuration
 // Uncomment to enable, for some a value > 1 may be assigned, if so the default value is shown.
 
 #if CONFIG_IDF_TARGET_ESP32S3
-#define USB_SERIAL_CDC          1 // Serial communication via native USB.
+//#define USB_SERIAL_CDC          1 // Serial communication via native USB.
 #endif
 // Spindle selection:
 // Up to four specific spindle drivers can be instantiated at a time
@@ -51,7 +51,7 @@
 // If none are specified the default PWM spindle is instantiated.
 // Spindle definitions can be found in grbl/spindle_control.h.
 // More here https://github.com/grblHAL/Plugins_spindle
-//#define SPINDLE0_ENABLE         SPINDLE_HUANYANG1
+//#define SPINDLE0_ENABLE         SPINDLE_NONE
 //#define SPINDLE1_ENABLE         SPINDLE_PWM0_NODIR
 //#define SPINDLE2_ENABLE         SPINDLE_NONE
 //#define SPINDLE3_ENABLE         SPINDLE_NONE
@@ -59,7 +59,7 @@
 //#define MODBUS_ENABLE           1 // Set to 1 for auto direction, 2 for direction signal on auxillary output pin.
 //#define WEBUI_ENABLE            3 // Enable ESP3D-WEBUI plugin along with networking and SD card plugins.
 //#define WEBUI_AUTH_ENABLE       1 // Enable ESP3D-WEBUI authentication.
-//#define WIFI_ENABLE             1 //
+#define WIFI_ENABLE             1 //
 //#define WIFI_SOFTAP             1 // Use Soft AP mode for WiFi.
 //#define ETHERNET_ENABLE         1 // Ethernet streaming. Uses networking plugin.
 //#define BLUETOOTH_ENABLE        1 // Set to 1 for native radio, 2 for HC-05 module.
@@ -114,11 +114,11 @@
 
 
 #if WIFI_ENABLE || ETHERNET_ENABLE || WEBUI_ENABLE
-#define TELNET_ENABLE         1 // Telnet daemon - requires WiFi streaming enabled.
+//#define TELNET_ENABLE         1 // Telnet daemon - requires WiFi streaming enabled.
 //#define WEBSOCKET_ENABLE      1 // Websocket daemon - requires WiFi streaming enabled.
 //#define MDNS_ENABLE           0 // mDNS daemon. Do NOT enable here, enable in CMakeLists.txt!
 //#define SSDP_ENABLE           1 // SSDP daemon - requires HTTP enabled.
-//#define MQTT_ENABLE           1 // MQTT client API, only enable if needed by plugin code.
+#define MQTT_ENABLE           1 // MQTT client API, only enable if needed by plugin code.
 #if SDCARD_ENABLE || WEBUI_ENABLE
 #define FTP_ENABLE            1 // Ftp daemon - requires SD card enabled.
 //#define HTTP_ENABLE           1 // http daemon - requires SD card enabled.
@@ -126,9 +126,9 @@
 #endif
 // The following symbols have the default values as shown, uncomment and change as needed.
 //#define NETWORK_STA_HOSTNAME    "grblHAL"
-//#define NETWORK_STA_IPMODE      1 // 0 = static, 1 = DHCP, 2 = AutoIP
-//#define NETWORK_STA_IP          "192.168.5.1"
-//#define NETWORK_STA_GATEWAY     "192.168.5.1"
+#define NETWORK_STA_IPMODE      1 // 0 = static, 1 = DHCP, 2 = AutoIP
+//#define NETWORK_STA_IP          "192.168.1.52"
+//#define NETWORK_STA_GATEWAY     "192.168.1.1"
 //#define NETWORK_STA_MASK        "255.255.255.0"
 #if WIFI_SOFTAP > 0
 //#define NETWORK_AP_SSID         "grblHAL_AP"

@@ -50,6 +50,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "mqtt_client.h"
 #include "mqtt_supported_features.h"
 
+#include <stdio.h>
+
 static uint32_t retries = 0;
 static bool connecting = false;
 static esp_mqtt_client_handle_t client;
@@ -136,11 +138,11 @@ bool mqtt_connect (mqtt_settings_t *mqtt, const char *client_id)
 
         esp_mqtt_client_config_t mqtt_cfg = {0};
 
-        strcpy(uri, "mqtt://");
+        strcpy(uri, "mqtts://");
         inet_ntop(AF_INET, &mqtt->ip, uri + 7, INET6_ADDRSTRLEN);
-
+        printf("uri: %s \n", uri);
         mqtt_cfg.client_id = client_id;
-        mqtt_cfg.uri = uri;
+        mqtt_cfg.uri = "mqtt://broker.hivemq.com";
         mqtt_cfg.port = mqtt->port;
         mqtt_cfg.username = mqtt->user;
         mqtt_cfg.password = mqtt->password;
