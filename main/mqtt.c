@@ -146,6 +146,12 @@ bool mqtt_connect (mqtt_settings_t *mqtt, const char *client_id)
         mqtt_cfg.port = mqtt->port;
         mqtt_cfg.username = mqtt->user;
         mqtt_cfg.password = mqtt->password;
+        //mqtt_cfg.keepalive = ;
+        //mqtt_cfg.lwt_msg =;
+        mqtt_cfg.lwt_msg_len =;
+        mqtt_cfg.lwt_retain =;
+        mqtt_cfg.lwt_topic =;
+        mqtt_cfg.lwt_qos =;
 //        mqtt_cfg.protocol_ver = MQTT_PROTOCOL_V_3_1_1;
 
         if((client = esp_mqtt_client_init(&mqtt_cfg))) {
